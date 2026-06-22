@@ -1,0 +1,19 @@
+name: 'Accessibility Scanner'
+description: 'Run axe-core WCAG accessibility checks on URLs in CI and fail the build on violations.'
+branding:
+  icon: 'check-circle'
+  color: 'green'
+inputs:
+  urls:
+    description: 'Space-separated URLs to scan'
+    required: true
+  fail-on:
+    description: 'Fail at/above this severity: minor | moderate | serious | critical | none'
+    required: false
+    default: 'serious'
+runs:
+  using: 'composite'
+  steps:
+    # GitHub-hosted ubuntu runners ship Google Chrome, which the CLI uses.
+    - shell: bash
+      run: npx --yes accessibility-scanner-cli ${{ inputs.urls }} --fail-on ${{ inputs.fail-on }}
