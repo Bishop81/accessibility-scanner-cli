@@ -1,4 +1,4 @@
-name: 'Accessibility Scanner'
+name: 'Accessibility Scanner (axe-core CI)'
 description: 'Run axe-core WCAG accessibility checks on URLs in CI and fail the build on violations.'
 branding:
   icon: 'check-circle'
