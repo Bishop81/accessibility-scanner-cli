@@ -6,15 +6,33 @@
   "bin": {
     "a11y-scan": "scan.mjs"
   },
-  "files": ["scan.mjs", "README.md"],
-  "engines": { "node": ">=18" },
-  "keywords": ["accessibility", "a11y", "wcag", "axe-core", "ci", "audit", "testing"],
+  "files": [
+    "scan.mjs",
+    "README.md"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": [
+    "accessibility",
+    "a11y",
+    "wcag",
+    "axe-core",
+    "ci",
+    "audit",
+    "testing"
+  ],
   "dependencies": {
     "axe-core": "^4.12.1",
     "playwright-core": "^1.61.0"
   },
   "license": "MIT",
   "homepage": "https://accessibilityscanner.app",
-  "repository": { "type": "git", "url": "git+https://github.com/Bishop81/accessibility-scanner-cli.git" },
-  "bugs": { "url": "https://github.com/Bishop81/accessibility-scanner-cli/issues" }
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Bishop81/accessibility-scanner-cli.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Bishop81/accessibility-scanner-cli/issues"
+  }
 }
