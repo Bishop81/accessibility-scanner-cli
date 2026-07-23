@@ -4,9 +4,17 @@ Run real **axe-core WCAG** accessibility checks on any URL — from your termina
 Fails the build on new violations, so accessibility can't silently regress.
 Uses your **system Chrome** (via `playwright-core`, no bundled-browser download).
 
+It scrolls the page before testing, so **lazy-loaded content gets checked** instead of
+silently skipped. Most scanners test whatever was above the fold; on one real site that was
+the difference between reporting 3 contrast violations and 12.
+
 It also resolves color-contrast that axe leaves as "needs review" when text sits on a
 **CSS gradient**: a gradient is defined by its stops, so the worst-case contrast is at one
 of them — the CLI measures there and returns a real pass/fail.
+
+> **Upgrading from 0.1.x?** 0.2.0 sees more of each page and so finds more issues. It can
+> fail a build that previously passed — the new findings are real, they were just invisible
+> before. See [CHANGELOG.md](CHANGELOG.md).
 
 By [accessibilityscanner.app](https://accessibilityscanner.app) — save history & monitor
 sites for regressions in the cloud.
@@ -34,6 +42,10 @@ Exit code is **non-zero** when a violation at or above `--fail-on` is found (def
 | `--json` | off | machine-readable output |
 | `--chrome <path>` | `chrome` channel | or set `CHROME_PATH` |
 | `--timeout <secs>` | `30` | per-page navigation timeout |
+
+Each page is scrolled before testing so lazy content renders, which costs a few seconds
+(roughly 4s → 9s per page). The pass is bounded at 12s and is skipped on pages that cannot
+be scrolled, so it can never hang a build.
 
 ## GitHub Action
 
