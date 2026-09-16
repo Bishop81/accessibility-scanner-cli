@@ -1,6 +1,6 @@
 {
   "name": "accessibility-scanner-cli",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "Run axe-core WCAG accessibility checks on any URL from the command line or CI. Fail the build on new violations. By accessibilityscanner.app",
   "type": "module",
   "bin": {
